@@ -1,0 +1,101 @@
+﻿@model WebApplication2.Models.Book
+
+@{
+	if (Model.BookName.Length > 10)
+	{
+		ViewData["Title"] = Model.BookName.Substring(0, 10) + "...";
+	}
+	else
+	{
+		ViewData["Title"] = Model.BookName;
+	}
+}
+
+<h1>Details</h1>
+
+<div>
+	<h1 style="margin-top:2rem">《@Html.DisplayFor(model => model.BookName)》</h1>
+	@if (Model.BookNameSub != null)
+	{
+	<h3 style="margin-left:1rem">——@Html.DisplayFor(model => model.BookNameSub)</h3>
+	}
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.BookAuthor)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.BookAuthor)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.BookPublisher)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.BookPublisher)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.BookLanguage)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.BookLanguage.LanguageName)
+		</dd>
+		@*<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.BookCode)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.BookCode)
+		</dd>*@
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.BookIsbn)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.BookIsbn)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.BookClccode)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.BookClccode)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.BookBrief)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.BookBrief)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.BookPressDate)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.BookPressDate)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.BookPages)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.BookPages)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.BookPrice)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.BookPrice)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.BookPurchaseDate)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.BookPurchaseDate)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.BookStatus)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.BookStatus.StatusName)
+		</dd>
+	</dl>
+</div>
+<div>
+	<a asp-action="Edit" asp-route-id="@Model.BookId" class="btn btn-outline-secondary" >Edit</a> |
+	<a asp-action="Index">Back to List class="btn btn-outline-info"</a>
+</div>

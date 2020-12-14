@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="500px" height="500px" viewbox="0 0 500 500" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="filter_1">
+      <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.5019608 0 0 0 0 0.5019608 0 0 0 0 0.5019608 0 0 0 1 0" />
+    </filter>
+    <rect width="500" height="500" id="artboard_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#artboard_1" clip-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="Artboard" clip-path="url(#clip_1)">
+    <g id="Bookmark-icon" transform="translate(93.75 62.5)" filter="url(#filter_1)">
+      <path d="M46.875 0C21.1792 0 0 21.1792 0 46.875L0 328.125C0 353.821 21.1792 375 46.875 375L312.5 375L312.5 0L46.875 0ZM46.875 31.25L281.25 31.25L281.25 281.25L46.875 281.25C41.3819 281.25 36.1938 282.41 31.25 284.18L31.25 46.875C31.25 38.0249 38.0249 31.25 46.875 31.25L46.875 31.25ZM46.875 312.5L281.25 312.5L281.25 343.75L46.875 343.75C38.0249 343.75 31.25 336.975 31.25 328.125C31.25 319.275 38.0249 312.5 46.875 312.5L46.875 312.5ZM95.25 62.2L236.25 62.2L236.25 90.2L95.25 90.2L95.25 62.2ZM95.25 118.5L185.25 118.5L185.25 146.5L95.25 146.5L95.25 118.5Z" id="Shape" fill="#FFFFFF" fill-rule="evenodd" stroke="none" />
+    </g>
+  </g>
+</svg>
