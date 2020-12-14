@@ -30,8 +30,13 @@ namespace WebApplication2.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySql("server=localhost;user id=root;pwd=7DGKWdtpdf!;database=library;charset=utf8;port=3307;sslmode=none", x => x.ServerVersion("8.0.21-mysql"));
+				string connectionString;
+				System.Configuration.ConnectionStringSettings connString = System.Configuration.ConfigurationManager.ConnectionStrings["LocalMySql"];
+				if (null != connString)
+				{
+					connectionString = connString.ConnectionString;
+					optionsBuilder.UseMySql(connectionString);
+				}
             }
         }
 
