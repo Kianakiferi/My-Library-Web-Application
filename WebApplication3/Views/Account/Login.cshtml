@@ -1,0 +1,51 @@
+﻿@model WebApplication3.ViewModels.LoginViewModel
+@{
+	ViewData["Title"] = "Login";
+}
+
+
+<div class="center-block">
+	<form asp-action="Login" class="form-signin">
+		<h1 class="text-center display-4" style="margin-bottom:2rem">Login</h1>
+
+		<div asp-validation-summary="ModelOnly" class="text-danger">
+
+		</div>
+		<div class="form-group">
+			<label asp-for="UserName" class="sr-only">User Name or Id</label>
+			<input asp-for="UserName" class="form-control" style="border-radius: 0px" placeholder="User Name/Id">
+			<span asp-validation-for="UserName" class="text-danger"></span>
+		</div>
+
+		<div class="form-group">
+			<label asp-for="Password" class="sr-only">Password</label>
+			<input asp-for="Password" class="form-control" style="border-radius: 0px" placeholder="Password">
+			<span asp-validation-for="Password" class="text-danger"></span>
+		</div>
+
+		<div class="form-group">
+			<div class="checkbox">
+				<label asp-for="RememberMe">
+					<input asp-for="RememberMe" />
+					@Html.DisplayNameFor(m => m.RememberMe)
+				</label>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary btn-lg btn-block">Log in</button>
+		</div>
+		<a asp-controller="Account" asp-action="Register">Not have a account?</a>
+	</form>
+
+
+</div>
+
+<style>
+	.form-signin {
+		width: 100%;
+		max-width: 22rem;
+		padding: 15px;
+		margin: auto;
+	}
+</style>

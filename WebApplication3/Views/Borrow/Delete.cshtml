@@ -1,0 +1,48 @@
+﻿@model WebApplication3.ViewModels.BorrowDetailViewModel
+
+@{
+	ViewData["Title"] = "Return Book";
+}
+
+<h2>Are you sure you want to return this?</h2>
+<br />
+
+@if (Model.RemainingDays >= 0)
+{
+	<h4>The book expires in <span class="text-primary">@Model.RemainingDays</span> days</h4>
+}
+<hr />
+<div>
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.LendDate)
+		</dt>
+		<dd class="col-sm-10">
+			@string.Format("{0:D}", Model.LendDate)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.ExpectReturnDate)
+		</dt>
+		<dd class="col-sm-10">
+			@string.Format("{0:D}", Model.ExpectReturnDate)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.DelayDays)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.DelayDays)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.DelayExpense)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.DelayExpense)
+		</dd>
+	</dl>
+
+	<form asp-action="Delete">
+		<input type="hidden" asp-for="UserId" />
+		<input type="submit" value="Return It" class="btn btn-danger" />
+		<a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+	</form>
+</div>

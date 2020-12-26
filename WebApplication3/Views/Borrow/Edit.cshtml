@@ -1,0 +1,79 @@
+﻿@model WebApplication3.Models.Borrow
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Borrow</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="BookId" class="control-label"></label>
+                <select asp-for="BookId" class="form-control" asp-items="ViewBag.BookId"></select>
+                <span asp-validation-for="BookId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReaderId" class="control-label"></label>
+                <select asp-for="ReaderId" class="form-control" asp-items="ViewBag.ReaderId"></select>
+                <span asp-validation-for="ReaderId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BorrowContinueTimes" class="control-label"></label>
+                <input asp-for="BorrowContinueTimes" class="form-control" />
+                <span asp-validation-for="BorrowContinueTimes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LendDate" class="control-label"></label>
+                <input asp-for="LendDate" class="form-control" />
+                <span asp-validation-for="LendDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExpectReturnDate" class="control-label"></label>
+                <input asp-for="ExpectReturnDate" class="form-control" />
+                <span asp-validation-for="ExpectReturnDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DelayDays" class="control-label"></label>
+                <input asp-for="DelayDays" class="form-control" />
+                <span asp-validation-for="DelayDays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DelayExpense" class="control-label"></label>
+                <input asp-for="DelayExpense" class="form-control" />
+                <span asp-validation-for="DelayExpense" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FineExpense" class="control-label"></label>
+                <input asp-for="FineExpense" class="form-control" />
+                <span asp-validation-for="FineExpense" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LendOperatorId" class="control-label"></label>
+                <input asp-for="LendOperatorId" class="form-control" />
+                <span asp-validation-for="LendOperatorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReturnOperatorId" class="control-label"></label>
+                <input asp-for="ReturnOperatorId" class="form-control" />
+                <span asp-validation-for="ReturnOperatorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

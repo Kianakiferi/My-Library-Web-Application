@@ -1,0 +1,24 @@
+﻿@model WebApplication3.ViewModels.BorrowViewModel
+
+@{
+	ViewData["Title"] = "Borrow";
+}
+
+<h1>Borrow this book?</h1>
+<br />
+<div class="col-md-6">
+	<ul class="list-group">
+		<li class="list-group-item">@Model.BookId</li>
+		<li class="list-group-item">《@Html.DisplayFor(model => model.BookName)》</li>
+		<li class="list-group-item">@Model.UserId</li>
+		<li class="list-group-item">@Model.UserName</li>
+		<li class="list-group-item">Now is: @string.Format("{0:D}", DateTime.Now)</li>
+	</ul>
+	<br />
+
+	<form asp-action="Borrow" method="post">
+		<input type="hidden" asp-for="@Model.BookId" />
+		<input type="hidden" asp-for="@Model.UserId" />
+		<button type="submit" class="btn btn-success">Borrow</button>
+	</form>
+</div>

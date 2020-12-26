@@ -1,0 +1,47 @@
+﻿@model WebApplication3.ViewModels.UserViewModel
+
+@{
+	ViewData["Title"] = Model.UserName;
+}
+
+<div class="mx-auto" style="max-width:30rem">
+	<div class="mb-md-5">
+		<a class="btn btn-secondary" asp-action="Edit" asp-route-username="@Model.UserName">Edit</a>
+		<a class="btn btn-warning" asp-action="LogOut">Sign Out</a>
+	</div>
+
+	<div class="mx-auto" style="max-width:12rem">
+		<img class="mx-auto rounded-lg" style="max-width:12rem; height:auto;" src="~/Images/User_Default.svg" />
+	</div>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.UUID)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.UUID)
+		</dd>
+
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.UserName)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.UserName)
+		</dd>
+
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Email)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Email)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.BorrowQuantity)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.BorrowQuantity)
+		</dd>
+	</dl>
+
+
+</div>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<WebApplication3.ViewModels.BorrowDetailViewModel>
+
+@{
+	ViewData["Title"] = "My Borrows";
+}
+
+<h1>@ViewData["Title"]</h1>
+<br/>
+<div class="row">
+	@foreach (var item in Model)
+	{
+		<div class="col-sm-4">
+			<div class="card" style="width: 20rem;">
+				@*<img src="~/Images/Book_Default.svg" alt="Book image default look" class="card-img-top" style="max-height: 10rem; width:100%; object-fit: cover;">*@
+				<div class="card_body">
+					<h4 class="text-lg-center m-md-3">《@item.BookName》</h4>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">Borrow time: @string.Format("{0:D}", item.LendDate)</li>
+					<li class="list-group-item">Return time: @string.Format("{0:D}", item.ExpectReturnDate)</li>
+					<li class="list-group-item">Continue Times: @item.BorrowContinueTimes</li>
+					@if (item.DelayDays > 0)
+					{
+						<li class="list-group-item">DelayDays: @item.DelayDays</li>
+						<li class="list-group-item">Delay: @item.DelayExpense</li>
+					}
+
+				</ul>
+				<div class="card-body">
+					<a asp-action="Delete" asp-route-id="@item.BorrowId" class="btn btn-success">Return Now</a>
+					<a asp-action="Extend" asp-route-id="@item.BorrowId" class="btn btn-outline-secondary">Add 30 Days</a>
+				</div>
+
+			</div>
+		</div>
+	}
+</div>

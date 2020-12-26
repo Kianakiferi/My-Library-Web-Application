@@ -1,0 +1,18 @@
+﻿@model WebApplication3.Models.Book
+@using Microsoft.AspNetCore.Identity
+@using WebApplication3.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+	<div>
+		<a asp-action="Edit" asp-route-id="@Model.BookId" class="btn btn-outline-secondary">Edit</a> 
+		<a asp-controller="Borrow" asp-action="Borrow" asp-route-id="@Model.BookId" class="btn btn-primary">Borrow</a> 
+	</div>
+}
+else
+{
+	<a asp-controller="Account" asp-action="Login">Sign in to see more</a>
+}

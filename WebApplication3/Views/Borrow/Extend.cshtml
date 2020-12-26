@@ -1,0 +1,57 @@
+﻿@model WebApplication3.ViewModels.BorrowDetailViewModel
+
+@{
+	ViewData["Title"] = "Delay Return";
+}
+
+<h2>Are you sure you want to extend this return time?</h2>
+<br />
+
+@if (Model.RemainingDays >= 0)
+{
+	<h4>The book expires in <span class="text-primary">@Model.RemainingDays</span> days</h4>
+}
+<hr />
+<div>
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.LendDate)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.LendDate)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.ExpectReturnDate)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.ExpectReturnDate)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.DelayDays)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.DelayDays)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.DelayExpense)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.DelayExpense)
+		</dd>
+	</dl>
+	<br />
+
+	<form class="form-row" asp-action="Extend" method="post">
+		<input type="hidden" asp-for="BorrowId" />
+		<div class="input-group col-md-6">
+			<input type="number" asp-for="RemainingDays" class="form-control" value="1" aria-label="Months input" aria-describedby="input-months">
+			<div class="input-group-append">
+				<span class="input-group-text" id="input-months">Month</span>
+			</div>
+		</div>
+		<div class="input-group" style="margin-top:1rem;margin-left:0.35rem">
+			<input type="submit" value="Return It" class="btn btn-warning" />
+			<a asp-action="Index" class="btn btn-outline-primary" style="margin-left:1rem">Back to List</a>
+		</div>
+	</form>
+</div>
